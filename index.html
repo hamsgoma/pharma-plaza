@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" 
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <style>
+    
+       
+       .navigation-bar {
+        width: 100%;  
+        height: 80px; 
+        background-color:gray; 
+    }
+        .logo {
+            display: inline-block;
+            vertical-align: top;
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            margin-top: 15px;    
+        }
+        .navigation-bar > a {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+            height: 80px;        
+            line-height: 80px; 
+            text-align: center;   
+        }
+        body{
+            background-color: rgb(82, 80, 80);
+        }
+        
+         table, td, th {  
+        border: 1px solid #ddd;
+        text-align: center;
+        
+        }
+
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        th, td {
+        padding: 15px;
+        }
+        h1{
+            font-size: 20px;
+            font-weight:lighter;
+            font-family:'Times New Roman', Times, serif;
+            text-align: center;
+            color:black;
+        }
+        .even{
+            background-color: rgb(196, 149, 157);
+        }
+        .odd{
+            background-color: rgb(182, 153, 182);
+        }
+       
+     </style>
+
+   
+</head>
+
+
+
+<body>
+    
+       <nav class="navigation-bar">
+            <img class="logo" src="images/pharma_logo.jpg">
+           <a>PHARMA PLAZA</a>
+        </nav>
+    
+   
+    <table >
+        <tr class="odd">
+            <td><h1>Item</h1></td>
+            <td><h1>Unit price</h1></td>
+            <td><h1>Quantity</h1></td>
+            <td><h1>Total</h1></td>
+    
+        </tr>
+        <tr class="even">
+            <td>Riana 200ml</td>
+            <td><span class="price">45</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+        </tr> 
+        <tr class="odd">
+            <td>Riana gel</td>
+            <td><span class="price">45</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr>
+        <tr class="even">
+            <td>Wan oil</td>
+            <td><span class="price">75</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr>
+        <tr class="odd">
+            <td>Wan Shampoo</td>
+            <td><span class="price">110</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr>
+        <tr class="even">
+            <td>Spenser 15g</td>
+            <td><span class="price">25</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr>
+        <tr class="odd">
+            <td>Spenser 30g</td>
+            <td><span class="price">40</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr> 
+        <tr class="even">
+            <td>Spenser 50g</td>
+            <td><span class="price">45</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr>
+         <tr class="odd">
+            <td>Florance gel 50g</td>
+            <td><span class="price">45</span></td>
+            <td><input type="number" class="choose"></td>
+            <td><span class="total"></span></td>
+    
+        </tr>
+       
+        
+        <tr class="even">
+            <th colspan="2"><h1>Total:</h></th>
+            <th colspan="2"><span id="sum"></span></th>
+        </tr>
+    
+    </table>
+    <script>
+    calc_total();
+    
+        $(".choose").on('change', function(){
+          var parent = $(this).closest('tr');
+          var price  = parseFloat($('.price',parent).text());
+          var choose = parseFloat($('.choose',parent).val());
+        
+          $('.total',parent).text(choose*price);
+        
+          calc_total();
+        });
+        
+        function calc_total(){
+          var sum = 0;
+          $(".total").each(function(){
+            sum += parseFloat($(this).text());
+          });
+          $('#sum').text(sum);
+        
+        }</script>
+</body>
+</html>
